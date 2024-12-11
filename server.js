@@ -10,7 +10,10 @@ import { userRouter } from './src/routes/userRouter.js';
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true,
+}));
 
 const PORT = 3000;
 const MONGO_DB_URI = process.env.MONGO_DB_URI;
